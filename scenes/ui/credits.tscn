@@ -41,7 +41,7 @@ texture_filter = 1
 layout_mode = 2
 text = "Programming - Modailun
 
-Art - Es & Modailun"
+Art - Es"
 label_settings = SubResource("LabelSettings_ooihk")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtnpung6nqo15"]
+[gd_scene load_steps=13 format=3 uid="uid://dtnpung6nqo15"]
 
 [ext_resource type="Texture2D" uid="uid://dv7g5wc4n8kdv" path="res://assets/sprites/nenuph violet.png" id="1_vo8jk"]
+[ext_resource type="Script" uid="uid://bykvecssltt5y" path="res://scripts/enemies/violet_ship.gd" id="1_xynk3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ouykr"]
 atlas = ExtResource("1_vo8jk")
@@ -69,7 +70,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3gyh"]
 radius = 8.0
 
-[node name="VioletShip" type="AnimatableBody2D"]
+[node name="VioletShip" type="CharacterBody2D"]
+script = ExtResource("1_xynk3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.063, 0.063)

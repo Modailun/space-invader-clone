@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqdi4v3pysxco"]
+
+[ext_resource type="Texture2D" uid="uid://ci251wyw6awht" path="res://assets/sprites/mothership.png" id="1_hu38b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a20q"]
+atlas = ExtResource("1_hu38b")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apet7"]
+atlas = ExtResource("1_hu38b")
+region = Rect2(512, 0, 512, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hr3ph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a20q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apet7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq8le"]
+size = Vector2(32, 16)
+
+[node name="Mothership" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.063, 0.063)
+sprite_frames = SubResource("SpriteFrames_hr3ph")
+autoplay = "default"
+frame_progress = 0.98762465
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aq8le")
