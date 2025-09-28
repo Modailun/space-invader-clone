@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://o4iqau55feb"]
+[gd_scene load_steps=7 format=3 uid="uid://o4iqau55feb"]
 
 [ext_resource type="Texture2D" uid="uid://bm53g60spdaf1" path="res://assets/sprites/Player Space Invader.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://2y6kr42fh5cj" path="res://scripts/player/player.gd" id="1_dovo2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 4.0
@@ -29,6 +30,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
