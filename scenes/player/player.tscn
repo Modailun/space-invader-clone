@@ -40,5 +40,8 @@ shape = SubResource("CapsuleShape2D_8afob")
 scale = Vector2(0.063, 0.063)
 sprite_frames = SubResource("SpriteFrames_lvxji")
 autoplay = "default"
-frame = 1
-frame_progress = 0.63898784
+frame_progress = 0.5428326
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true

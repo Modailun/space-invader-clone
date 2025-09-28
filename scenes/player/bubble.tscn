@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://de4e260lge1ad"]
+[gd_scene load_steps=4 format=3 uid="uid://de4e260lge1ad"]
 
+[ext_resource type="Script" uid="uid://c6lu5yx1k1xvj" path="res://scripts/player/bubble.gd" id="1_ppb5o"]
 [ext_resource type="Texture2D" uid="uid://byr0ku5omclx5" path="res://assets/sprites/small bubble.png" id="1_xprf3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ppb5o"]
 radius = 2.0
 
 [node name="Bubble" type="Area2D"]
+top_level = true
+script = ExtResource("1_ppb5o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.03199988, -0.03199988)
@@ -14,3 +17,5 @@ texture = ExtResource("1_xprf3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ppb5o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
