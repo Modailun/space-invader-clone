@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdje8hhs8omka"]
+
+[ext_resource type="Texture2D" uid="uid://dg1ab5mf8fga6" path="res://assets/sprites/Font rivière.png" id="1_sk5k4"]
+[ext_resource type="PackedScene" uid="uid://0306l0gb6wby" path="res://scenes/levels/formation_level_1.tscn" id="2_6761a"]
+[ext_resource type="PackedScene" uid="uid://00cuijx1nyf1" path="res://scenes/ui/pause_ui.tscn" id="2_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://o4iqau55feb" path="res://scenes/player/player.tscn" id="3_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://cuwbunl2t02lw" path="res://scenes/levels/wall.tscn" id="4_x42e6"]
+[ext_resource type="PackedScene" uid="uid://dqdi4v3pysxco" path="res://scenes/enemies/mothership.tscn" id="6_sk5k4"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="BackgroundLevel1" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLevel1"]
+position = Vector2(160, 90)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_sk5k4")
+
+[node name="PauseUI" parent="." instance=ExtResource("2_nsrm0")]
+
+[node name="Player" parent="." instance=ExtResource("3_nsrm0")]
+top_level = true
+position = Vector2(160, 160)
+motion_mode = 1
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall2" parent="Walls" instance=ExtResource("4_x42e6")]
+position = Vector2(320, 96)
+rotation = -1.5707964
+
+[node name="Wall" parent="Walls" instance=ExtResource("4_x42e6")]
+position = Vector2(0, 96)
+rotation = 1.5707964
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FormationLevel1" parent="Enemies" instance=ExtResource("2_6761a")]
+position = Vector2(248, 48)
+
+[node name="Mothership" parent="Enemies" instance=ExtResource("6_sk5k4")]
+position = Vector2(296, 16)
