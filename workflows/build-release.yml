@@ -104,7 +104,8 @@ jobs:
           name: Release ${{ env.TAGVERSION }}
           body: |
             **Changelog for ${{ env.TAGVERSION }}**
-            - Fixed credits.
+            - Added windows, linux and web builds
+            - Released to itch.io
           files: |
             build/${{ env.EXPORT_NAME }}-windows-${{ env.TAGVERSION }}.zip
             build/${{ env.EXPORT_NAME }}-linux-${{ env.TAGVERSION }}.zip
