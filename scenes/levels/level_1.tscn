@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdje8hhs8omka"]
+
+[ext_resource type="Texture2D" uid="uid://bsk6egbr2onxc" path="res://assets/sprites/Background test.png" id="1_6iamk"]
+[ext_resource type="PackedScene" uid="uid://00cuijx1nyf1" path="res://scenes/ui/pause_ui.tscn" id="2_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://o4iqau55feb" path="res://scenes/player/player.tscn" id="3_nsrm0"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="BackgroundLevel1" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLevel1"]
+position = Vector2(160, 90)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_6iamk")
+
+[node name="PauseUI" parent="." instance=ExtResource("2_nsrm0")]
+
+[node name="Player" parent="." instance=ExtResource("3_nsrm0")]
+top_level = true
+position = Vector2(160, 160)
+motion_mode = 1
