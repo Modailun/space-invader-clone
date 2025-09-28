@@ -1,83 +1,84 @@
 [gd_scene load_steps=13 format=3 uid="uid://dtnpung6nqo15"]
 
-[ext_resource type="Texture2D" uid="uid://dv7g5wc4n8kdv" path="res://assets/sprites/nenuph violet.png" id="1_vo8jk"]
 [ext_resource type="Script" uid="uid://bykvecssltt5y" path="res://scripts/enemies/violet_ship.gd" id="1_xynk3"]
+[ext_resource type="Texture2D" uid="uid://boretko81afhj" path="res://assets/sprites/nenuph violet fixed.png" id="2_xynk3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ouykr"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3gyh"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1otc"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hj88u"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5opr"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(256, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ngr4"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_or58s"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(512, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_txbo3"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbojg"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(768, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dd3p"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxucd"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(0, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcw4p"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3fr5"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(256, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wbqnc"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2n1t"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(512, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_35cci"]
-atlas = ExtResource("1_vo8jk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvwcl"]
+atlas = ExtResource("2_xynk3")
 region = Rect2(768, 256, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_til0e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ouykr")
+"texture": SubResource("AtlasTexture_p1otc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hj88u")
+"texture": SubResource("AtlasTexture_f5opr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ngr4")
+"texture": SubResource("AtlasTexture_or58s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_txbo3")
+"texture": SubResource("AtlasTexture_bbojg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6dd3p")
+"texture": SubResource("AtlasTexture_nxucd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kcw4p")
+"texture": SubResource("AtlasTexture_w3fr5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wbqnc")
+"texture": SubResource("AtlasTexture_s2n1t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_35cci")
+"texture": SubResource("AtlasTexture_mvwcl")
 }],
 "loop": true,
 "name": &"violet",
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s3gyh"]
-radius = 8.0
-
 [node name="VioletShip" type="CharacterBody2D"]
 script = ExtResource("1_xynk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s3gyh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.063, 0.063)
 sprite_frames = SubResource("SpriteFrames_til0e")
 animation = &"violet"
 autoplay = "violet"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_s3gyh")
+frame_progress = 0.6367086

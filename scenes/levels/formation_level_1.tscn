@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://0306l0gb6wby"]
+[gd_scene load_steps=4 format=3 uid="uid://0306l0gb6wby"]
 
+[ext_resource type="Script" uid="uid://c6n7jx225rbvq" path="res://scripts/levels/formation_level_1.gd" id="1_n55if"]
 [ext_resource type="PackedScene" uid="uid://dtnpung6nqo15" path="res://scenes/enemies/violet_ship.tscn" id="1_w5n1k"]
 [ext_resource type="PackedScene" uid="uid://us8xdtjer7s0" path="res://scenes/enemies/orange_ship.tscn" id="2_n55if"]
 
 [node name="FormationLevel1" type="Node2D"]
+script = ExtResource("1_n55if")
 
 [node name="VioletShip" parent="." instance=ExtResource("1_w5n1k")]
 position = Vector2(-56, 16)
