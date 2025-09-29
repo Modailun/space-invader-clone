@@ -5,10 +5,10 @@ on:
       - 'v*'
 env:
   GODOT_VERSION: 4.5
-  EXPORT_NAME: space-invader-clone
+  EXPORT_NAME: space-invaders-clone
   PROJECT_PATH: "."
   ITCH_USER_NAME: modailun
-  ITCH_GAME_NAME: space-invader-clone
+  ITCH_GAME_NAME: space-invaders-clone
 jobs:
   build:
     name: Build
