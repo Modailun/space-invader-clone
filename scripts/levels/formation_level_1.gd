@@ -19,18 +19,25 @@ var max_shoot_delay: float = 3.0
 @onready var violet_ship_scene: PackedScene = preload("res://scenes/enemies/violet_ship.tscn")
 
 func _ready() -> void:
+	# Ajoute les ennemis de la première ligne
 	for child in get_children():
 		if child is Enemy:
 			enemies[0].append(child)
-			var orange_ship = orange_ship_scene.instantiate()
-			orange_ship.position = Vector2(0, 16)
-			child.add_child(orange_ship)
-			enemies[1].append(orange_ship)
-	for child in enemies[1]:
+
+    # Ajoute les ennemis de la deuxième ligne (orange)
+	for i in range(enemies[0].size()):
+		var orange_ship = orange_ship_scene.instantiate()
+		orange_ship.position = enemies[0][i].position + Vector2(0, 16)
+		add_child(orange_ship)  # Ajoute directement à la scène
+		enemies[1].append(orange_ship)
+
+	# Ajoute les ennemis de la troisième ligne (violet)
+	for i in range(enemies[1].size()):
 		var violet_ship = violet_ship_scene.instantiate()
-		violet_ship.position = Vector2(0, 16)
-		child.add_child(violet_ship)
+		violet_ship.position = enemies[1][i].position + Vector2(0, 16)
+		add_child(violet_ship)  # Ajoute directement à la scène
 		enemies[2].append(violet_ship)
+
 	print(enemies)
 	# Démarre le timer pour le premier tir
 	shoot_timer.wait_time = randf_range(min_shoot_delay, max_shoot_delay)
@@ -76,11 +83,17 @@ func get_bottom_enemies() -> Array:
 				# Si c'est la dernière ligne, tous les ennemis sont "du bas"
 				if line_idx == enemies.size() - 1:
 					bottom_line.append(line[enemy_idx])
+				# Si c'est l'avant-dernière ligne, vérifier si la ligne en dessous a un ennemi vivant
+				elif line_idx == enemies.size() - 2:
+					var line_below = enemies[line_idx + 1]
+					if enemy_idx >= line_below.size() or line_below[enemy_idx] == null or !line_below[enemy_idx].is_alive:
+						bottom_line.append(line[enemy_idx])
 				else:
 					# Récupérer la ligne en dessous
 					var line_below = enemies[line_idx + 1]
+					var line_below_below = enemies[line_idx + 2]
 					# Vérifier si l'ennemi n'est pas "recouvert" par un ennemi en dessous
 					# (on vérifie que l'ennemi en dessous n'existe pas ou n'est pas vivant)
-					if enemy_idx >= line_below.size() or line_below[enemy_idx] == null or !line_below[enemy_idx].is_alive:
+					if (enemy_idx >= line_below.size() or line_below[enemy_idx] == null or !line_below[enemy_idx].is_alive) and (enemy_idx >= line_below_below.size() or line_below_below[enemy_idx] == null or !line_below_below[enemy_idx].is_alive):
 						bottom_line.append(line[enemy_idx])
 	return bottom_line
