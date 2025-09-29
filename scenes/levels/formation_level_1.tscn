@@ -1,80 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://0306l0gb6wby"]
+[gd_scene load_steps=3 format=3 uid="uid://0306l0gb6wby"]
 
 [ext_resource type="Script" uid="uid://c6n7jx225rbvq" path="res://scripts/levels/formation_level_1.gd" id="1_n55if"]
-[ext_resource type="PackedScene" uid="uid://dtnpung6nqo15" path="res://scenes/enemies/violet_ship.tscn" id="1_w5n1k"]
 [ext_resource type="PackedScene" uid="uid://us8xdtjer7s0" path="res://scenes/enemies/orange_ship.tscn" id="2_n55if"]
 
 [node name="FormationLevel1" type="Node2D"]
 script = ExtResource("1_n55if")
 
-[node name="VioletShip" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(-56, 16)
-
-[node name="OrangeShip" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(-56, 0)
-
 [node name="OrangeShip2" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(-56, -16)
-
-[node name="VioletShip2" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(-40, 16)
-
-[node name="OrangeShip3" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(-40, 0)
 
 [node name="OrangeShip4" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(-40, -16)
 
-[node name="VioletShip3" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(-24, 16)
-
-[node name="OrangeShip5" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(-24, 0)
-
 [node name="OrangeShip6" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(-24, -16)
-
-[node name="VioletShip4" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(-8, 16)
-
-[node name="OrangeShip7" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(-8, 0)
 
 [node name="OrangeShip8" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(-8, -16)
 
-[node name="VioletShip5" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(8, 16)
-
-[node name="OrangeShip9" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(8, 0)
-
 [node name="OrangeShip10" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(8, -16)
-
-[node name="VioletShip6" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(24, 16)
-
-[node name="OrangeShip11" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(24, 0)
 
 [node name="OrangeShip12" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(24, -16)
 
-[node name="VioletShip7" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(40, 16)
-
-[node name="OrangeShip13" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(40, 0)
-
 [node name="OrangeShip14" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(40, -16)
 
-[node name="VioletShip8" parent="." instance=ExtResource("1_w5n1k")]
-position = Vector2(56, 16)
-
-[node name="OrangeShip15" parent="." instance=ExtResource("2_n55if")]
-position = Vector2(56, 0)
-
 [node name="OrangeShip16" parent="." instance=ExtResource("2_n55if")]
 position = Vector2(56, -16)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

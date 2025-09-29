@@ -1,4 +1,4 @@
-# Space Invader Clone
+# Space Invaders Clone
 
 
 ![Godot Engine](https://img.shields.io/badge/Godot-4.5-blue)

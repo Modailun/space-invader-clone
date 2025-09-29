@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv7g5wc4n8kdv"
-path="res://.godot/imported/nenuph violet.png-05cd0c463bced52a956b4d1be3ed5e41.ctex"
+uid="uid://c6y6pyyjwiqvg"
+path="res://.godot/imported/chunk enemy.png-222c2ab576c94e2ad47901ac1e99ab7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/nenuph violet.png"
-dest_files=["res://.godot/imported/nenuph violet.png-05cd0c463bced52a956b4d1be3ed5e41.ctex"]
+source_file="res://assets/sprites/chunk enemy.png"
+dest_files=["res://.godot/imported/chunk enemy.png-222c2ab576c94e2ad47901ac1e99ab7c.ctex"]
 
 [params]
 

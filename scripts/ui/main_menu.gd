@@ -1,5 +1,9 @@
 extends Container
 
+@onready var start_game: Button = $MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/StartGame
+
+func _ready() -> void:
+	start_game.grab_focus.call_deferred()
 
 func _on_start_game_pressed() -> void:
 	#print("Start Game")

@@ -8,12 +8,11 @@
 default_font = ExtResource("2_vcehk")
 default_font_size = 8
 
-[sub_resource type="InputEventKey" id="InputEventKey_rus8k"]
-device = -1
-keycode = 4194305
+[sub_resource type="InputEventAction" id="InputEventAction_yrwkb"]
+action = &"pause"
 
 [sub_resource type="Shortcut" id="Shortcut_ypbrs"]
-events = [SubResource("InputEventKey_rus8k")]
+events = [SubResource("InputEventAction_yrwkb")]
 
 [node name="PauseUI" type="CanvasLayer"]
 scale = Vector2(0.25, 0.25)

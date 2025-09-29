@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2fhlvx8nsel4"]
+
+[ext_resource type="Texture2D" uid="uid://c6y6pyyjwiqvg" path="res://assets/sprites/chunk enemy.png" id="1_j1b8m"]
+[ext_resource type="Script" uid="uid://pmy4uxedwvhy" path="res://scripts/enemies/chunk.gd" id="1_k30mj"]
+
+[node name="Chunk" type="Area2D"]
+script = ExtResource("1_k30mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("1_j1b8m")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(-4, -4, 4, -4, 0, 4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -25,10 +25,10 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -39,7 +39,7 @@ layout_mode = 2
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-text = "Space Invader Clone"
+text = "Space Invaders Clone"
 label_settings = SubResource("LabelSettings_bqqt6")
 
 [node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -52,6 +52,7 @@ alignment = 1
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../Options")
 theme = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 8
 text = "New Game"
@@ -61,6 +62,8 @@ icon_alignment = 1
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../StartGame")
+focus_neighbor_bottom = NodePath("../Credits")
 theme = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 8
 text = "Settings"
@@ -70,6 +73,8 @@ icon_alignment = 1
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Exit")
 theme = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 8
 text = "Credits"
@@ -79,6 +84,7 @@ icon_alignment = 1
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Credits")
 theme = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 8
 text = "Exit"
@@ -87,7 +93,7 @@ icon_alignment = 1
 [node name="Version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-text = "v0.0.1b
+text = "v0.0.2
 Made with Godot"
 label_settings = SubResource("LabelSettings_wu84c")
 
