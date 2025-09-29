@@ -14,3 +14,9 @@ func _on_body_entered(body: Node2D) -> void:
 		body.queue_free()
 		queue_free()
 		# Optionally, you can add score increment logic here
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.name == "Chunk":
+		area.queue_free()
+		queue_free()
+		# Optionally, you can add score increment logic here
