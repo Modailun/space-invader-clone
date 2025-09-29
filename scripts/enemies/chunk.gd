@@ -3,14 +3,12 @@ extends Area2D
 var speed: float = 50.0
 
 func _physics_process(delta: float) -> void:
-	# Move the bubble upwards
-	position.y -= speed * delta
-	# Remove the bubble if it goes off-screen
-	if position.y < -10:
+	position.y += speed * delta
+	if position.y > 190 :  # Supprime la balle si elle sort de l'écran
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enemy:
+	if body.name == "Player":
 		body.queue_free()
 		queue_free()
 		# Optionally, you can add score increment logic here
