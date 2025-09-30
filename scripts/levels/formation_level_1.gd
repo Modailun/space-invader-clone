@@ -17,6 +17,7 @@ var max_shoot_delay: float = 3.0
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var orange_ship_scene: PackedScene = preload("res://scenes/enemies/orange_ship.tscn")
 @onready var violet_ship_scene: PackedScene = preload("res://scenes/enemies/violet_ship.tscn")
+@onready var game_manager: Node = %GameManager
 
 func _ready() -> void:
 	# Ajoute les ennemis de la première ligne
@@ -60,6 +61,9 @@ func _physics_process(delta: float) -> void:
 	if position.y > viewport_size.y - 4 * sprite_size or position.y < 3 * sprite_size:
 		direction_y *= -1
 		position.y += direction_y * distance_y
+	
+	if get_bottom_enemies().size() == 0:
+		game_manager.winner()
 
 func _on_shoot_timer_timeout() -> void:
 	# Trouve la ligne la plus basse avec des ennemis vivants

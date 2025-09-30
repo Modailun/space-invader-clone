@@ -54,29 +54,35 @@ func lose_life() -> void:
 		mul = 1  # Réinitialise le multiplicateur
 		# Met à jour l'affichage du score et des vies
 		score_label.text = "Score: " + str(score)
-		#lives_label.text = "Lives: " + str(lives)
+		lives_label.text = "Lives: " + str(lives)
 	else:
 		# Si c'était la dernière vie, le joueur perd
+		lives -= 1  # Retire une vie
+		lives_label.text = "Lives: " + str(lives)
 		Engine.time_scale = 0.5  # Ralentit le temps pour l'effet dramatique
 		game_over_timer.start()  # Démarre le timer pour la fin de partie
 
-		
+func winner() -> void:
+	game_over(true)
 
 # Gère la fin de partie (victoire ou défaite)
-func game_over() -> void:
+func game_over(win: bool) -> void:
 	# Enregistre le dernier score dans le gestionnaire de scènes
 	ScenesManager.latest_score = score
 	save_high_score()  # Sauvegarde le meilleur score
 	ScenesManager.high_score = get_high_score()  # Récupère le meilleur score
-
 	# Réinitialise les variables pour une nouvelle partie
 	score = 0
 	lives = 3
 	mul = 1
-
-	#print("Game Over")  # Affiche "Game Over" dans la console
-	# Charge l'écran de fin de partie (défaite)
-	#ScenesManager.change_scene(ScenesManager.Scenes["END_SCREEN_LOSE"])
+	if not win:
+		#print("Game Over")  # Affiche "Game Over" dans la console
+		# Charge l'écran de fin de partie (défaite)
+		ScenesManager.change_scene(ScenesManager.Scenes["END_SCREEN_LOSE"])
+	else:
+		#print("You Win!")  # Affiche "You Win!" dans la console
+		# Charge l'écran de fin de partie (victoire)
+		ScenesManager.change_scene(ScenesManager.Scenes["END_SCREEN_WIN"])
 
 func save_high_score() -> void:
 	var config = ConfigFile.new()
@@ -99,4 +105,4 @@ func get_high_score() -> int:
 
 func _on_game_over_timer_timeout() -> void:
 	Engine.time_scale = 1
-	game_over()
+	game_over(false)

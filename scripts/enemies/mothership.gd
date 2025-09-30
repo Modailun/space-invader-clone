@@ -4,6 +4,7 @@ var direction: int = -1
 @export var speed: int = 48
 
 func _ready() -> void:
+	add_to_group("mothership")
 	print("Mothership ready")
 	if position.x > 160:
 		direction = -1

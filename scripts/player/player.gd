@@ -4,7 +4,7 @@ const SPEED = 5000.0
 
 var bubble_scene: PackedScene = preload("res://scenes/player/bubble.tscn")
 var bubble_start_speed : float = 50.0
-
+@export var initial_position: Vector2 = Vector2(160, 160)
 @onready var timer: Timer = $Timer
 @onready var game_manager: Node = %GameManager
 
@@ -31,6 +31,7 @@ func shoot_bubble():
 	var bubble = bubble_scene.instantiate()
 	# Positionne la bulle au-dessus du joueur
 	bubble.position = position + Vector2(0, -4)
+	bubble.connect("hit", _on_bubble_hit)
 	# Ajoute la bulle à la scène
 	get_parent().add_child(bubble)
 	# Démarre le timer pour limiter la cadence de tir
@@ -38,3 +39,9 @@ func shoot_bubble():
 
 func died() -> void:
 	print("Player died")
+	if game_manager.lives > 1:
+		position = initial_position
+	game_manager.lose_life()
+
+func _on_bubble_hit(points: int) -> void:
+	game_manager.add_point(points)
