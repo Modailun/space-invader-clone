@@ -1,11 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdje8hhs8omka"]
+[gd_scene load_steps=11 format=3 uid="uid://bdje8hhs8omka"]
 
 [ext_resource type="Texture2D" uid="uid://dg1ab5mf8fga6" path="res://assets/sprites/Font rivière.png" id="1_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://0306l0gb6wby" path="res://scenes/levels/formation_level_1.tscn" id="2_6761a"]
 [ext_resource type="PackedScene" uid="uid://00cuijx1nyf1" path="res://scenes/ui/pause_ui.tscn" id="2_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://o4iqau55feb" path="res://scenes/player/player.tscn" id="3_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://cuwbunl2t02lw" path="res://scenes/levels/wall.tscn" id="4_x42e6"]
-[ext_resource type="PackedScene" uid="uid://dqdi4v3pysxco" path="res://scenes/enemies/mothership.tscn" id="6_sk5k4"]
+[ext_resource type="Script" uid="uid://b0fugxnk1mdlj" path="res://scripts/levels/game_manager.gd" id="6_oc4kc"]
+[ext_resource type="FontFile" uid="uid://bpmxp0nxnekwg" path="res://assets/fonts/PixelOperator8.ttf" id="7_s8va5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dga24"]
+font = ExtResource("7_s8va5")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_qxy0u"]
+font = ExtResource("7_s8va5")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_oc4kc"]
+font = ExtResource("7_s8va5")
+font_size = 8
 
 [node name="Level1" type="Node2D"]
 
@@ -21,7 +34,6 @@ texture = ExtResource("1_sk5k4")
 [node name="Player" parent="." instance=ExtResource("3_nsrm0")]
 top_level = true
 position = Vector2(160, 160)
-motion_mode = 1
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -38,5 +50,38 @@ rotation = 1.5707964
 [node name="FormationLevel1" parent="Enemies" instance=ExtResource("2_6761a")]
 position = Vector2(248, 48)
 
-[node name="Mothership" parent="Enemies" instance=ExtResource("6_sk5k4")]
-position = Vector2(296, 16)
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_oc4kc")
+
+[node name="MothershipTimer" type="Timer" parent="GameManager"]
+wait_time = 20.0
+autostart = true
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 112.0
+offset_right = 224.0
+offset_bottom = 24.0
+text = "Score = X"
+label_settings = SubResource("LabelSettings_dga24")
+
+[node name="BestScoreLabel" type="Label" parent="GameManager"]
+offset_left = 200.0
+offset_right = 352.0
+offset_bottom = 23.0
+text = "Best Score = X"
+label_settings = SubResource("LabelSettings_qxy0u")
+
+[node name="LivesLabel" type="Label" parent="GameManager"]
+offset_left = 24.0
+offset_right = 112.0
+offset_bottom = 23.0
+text = "Lives = X"
+label_settings = SubResource("LabelSettings_oc4kc")
+
+[node name="GameOverTimer" type="Timer" parent="GameManager"]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="GameManager/MothershipTimer" to="GameManager" method="_on_mothership_timer_timeout"]
+[connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="_on_game_over_timer_timeout"]

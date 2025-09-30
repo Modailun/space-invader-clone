@@ -38,7 +38,7 @@ func _ready() -> void:
 		add_child(violet_ship)  # Ajoute directement à la scène
 		enemies[2].append(violet_ship)
 
-	print(enemies)
+	# print(enemies)
 	# Démarre le timer pour le premier tir
 	shoot_timer.wait_time = randf_range(min_shoot_delay, max_shoot_delay)
 	shoot_timer.start()
