@@ -104,7 +104,12 @@ jobs:
           name: Release ${{ env.TAGVERSION }}
           body: |
             **Changelog for ${{ env.TAGVERSION }}**
-            - Fixed menu focus issue.
+            - Added enemies chunks.
+            - Added ability to destroy chunks.
+            - Added mothership.
+            - Added scoring system.
+            - Added win condition.
+            - Added end screen for win and lose.
           files: |
             build/${{ env.EXPORT_NAME }}-windows-${{ env.TAGVERSION }}.zip
             build/${{ env.EXPORT_NAME }}-linux-${{ env.TAGVERSION }}.zip
