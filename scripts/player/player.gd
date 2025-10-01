@@ -38,7 +38,6 @@ func shoot_bubble():
 	timer.start()
 
 func died() -> void:
-	print("Player died")
 	if game_manager.lives > 1:
 		position = initial_position
 	game_manager.lose_life()

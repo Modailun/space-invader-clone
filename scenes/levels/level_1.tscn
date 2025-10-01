@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdje8hhs8omka"]
+[gd_scene load_steps=12 format=3 uid="uid://bdje8hhs8omka"]
 
 [ext_resource type="Texture2D" uid="uid://dg1ab5mf8fga6" path="res://assets/sprites/Font rivière.png" id="1_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://0306l0gb6wby" path="res://scenes/levels/formation_level_1.tscn" id="2_6761a"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://o4iqau55feb" path="res://scenes/player/player.tscn" id="3_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://cuwbunl2t02lw" path="res://scenes/levels/wall.tscn" id="4_x42e6"]
 [ext_resource type="Script" uid="uid://b0fugxnk1mdlj" path="res://scripts/levels/game_manager.gd" id="6_oc4kc"]
+[ext_resource type="PackedScene" uid="uid://syhshsxh4ifq" path="res://scenes/levels/rock.tscn" id="6_s8va5"]
 [ext_resource type="FontFile" uid="uid://bpmxp0nxnekwg" path="res://assets/fonts/PixelOperator8.ttf" id="7_s8va5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dga24"]
@@ -49,6 +50,143 @@ rotation = 1.5707964
 
 [node name="FormationLevel1" parent="Enemies" instance=ExtResource("2_6761a")]
 position = Vector2(248, 48)
+
+[node name="Rocks" type="Node2D" parent="."]
+
+[node name="Rock" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(178, 128)
+
+[node name="Rock2" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(110, 144)
+
+[node name="Rock3" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(138, 144)
+
+[node name="Rock4" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(146, 128)
+
+[node name="Rock5" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(138, 136)
+
+[node name="Rock6" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(154, 144)
+
+[node name="Rock7" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(154, 136)
+
+[node name="Rock8" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(146, 136)
+
+[node name="Rock9" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(218, 144)
+
+[node name="Rock10" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(242, 144)
+
+[node name="Rock33" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(242, 136)
+
+[node name="Rock34" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(242, 128)
+
+[node name="Rock35" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(250, 144)
+
+[node name="Rock36" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(258, 144)
+
+[node name="Rock37" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(258, 136)
+
+[node name="Rock38" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(258, 128)
+
+[node name="Rock39" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(282, 128)
+
+[node name="Rock40" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(282, 136)
+
+[node name="Rock41" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(282, 144)
+
+[node name="Rock42" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(290, 136)
+
+[node name="Rock43" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(298, 144)
+
+[node name="Rock45" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(298, 128)
+
+[node name="Rock44" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(298, 136)
+
+[node name="Rock11" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(210, 144)
+
+[node name="Rock12" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(202, 136)
+
+[node name="Rock13" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(202, 128)
+
+[node name="Rock14" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(178, 136)
+
+[node name="Rock15" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(178, 144)
+
+[node name="Rock16" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(202, 144)
+
+[node name="Rock17" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(102, 128)
+
+[node name="Rock18" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(22, 136)
+
+[node name="Rock19" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(22, 144)
+
+[node name="Rock20" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(38, 128)
+
+[node name="Rock21" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(22, 128)
+
+[node name="Rock22" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(38, 136)
+
+[node name="Rock23" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(30, 133)
+
+[node name="Rock24" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(78, 136)
+
+[node name="Rock25" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(114, 136)
+
+[node name="Rock26" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(110, 128)
+
+[node name="Rock27" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(70, 144)
+
+[node name="Rock28" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(70, 128)
+
+[node name="Rock29" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(62, 136)
+
+[node name="Rock30" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(38, 144)
+
+[node name="Rock31" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(102, 136)
+
+[node name="Rock32" parent="Rocks" instance=ExtResource("6_s8va5")]
+position = Vector2(102, 144)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

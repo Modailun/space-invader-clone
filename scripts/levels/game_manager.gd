@@ -25,7 +25,6 @@ func _ready() -> void:
 	best_score_label.text = "Best score: " + str(get_high_score())
 	
 func _on_mothership_timer_timeout() -> void:
-	print("Spawn mothership")
 	# Instancie un nouvel mothership
 	var mothership = mothership_scene.instantiate()
 	if mothership_count % 2 == 0:
