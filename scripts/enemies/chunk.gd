@@ -2,6 +2,8 @@ extends Area2D
 
 @export var speed: float = 50.0
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 func _ready() -> void:
 	add_to_group("enemy_chunks")
 
@@ -12,8 +14,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("rock") and body.is_inside_tree():
+		animation_player.play("rock destroy")
 		body.queue_free()
-		queue_free()
 	elif body.is_in_group("player") and body.is_inside_tree():
+		animation_player.play("death player")
 		body.died()
-		queue_free()

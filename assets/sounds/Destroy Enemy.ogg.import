@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6i2goyahyvao"
+path="res://.godot/imported/Destroy Enemy.ogg-c5fdc9782d67104e9bf1f248832ada02.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Destroy Enemy.ogg"
+dest_files=["res://.godot/imported/Destroy Enemy.ogg-c5fdc9782d67104e9bf1f248832ada02.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
