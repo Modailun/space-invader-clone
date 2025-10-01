@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdcmlcmh4i3mj"
+path="res://.godot/imported/Rock Destroyed.ogg-9a74e384ad736e3d6615348fa7d75ae0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Rock Destroyed.ogg"
+dest_files=["res://.godot/imported/Rock Destroyed.ogg-9a74e384ad736e3d6615348fa7d75ae0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

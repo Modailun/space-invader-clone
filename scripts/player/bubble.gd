@@ -4,6 +4,8 @@ signal hit(points: int)
 
 @export var speed: float = 50.0
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 func _physics_process(delta: float) -> void:
 	# Move the bubble upwards
 	position.y -= speed * delta
@@ -13,8 +15,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("rock") and body.is_inside_tree():
+		animation_player.play("rock destroy")
 		body.queue_free()
-		queue_free()
 	elif body is Enemy and body.is_inside_tree():
 		if body.is_in_group("mothership"):
 			emit_signal("hit", 100)
@@ -25,13 +27,13 @@ func _on_body_entered(body: Node2D) -> void:
 		elif body.is_in_group("orange_ship"):
 			emit_signal("hit", 20)
 			#%GameManager.add_point(20)
+		animation_player.play("enemy destroy")
 		body.queue_free()
-		queue_free()
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_chunks") and area.is_inside_tree():
 		#%GameManager.add_point(5)
 		emit_signal("hit", 5)
+		animation_player.play("enemy destroy")
 		area.queue_free()
-		queue_free()
