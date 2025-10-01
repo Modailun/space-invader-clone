@@ -104,12 +104,7 @@ jobs:
           name: Release ${{ env.TAGVERSION }}
           body: |
             **Changelog for ${{ env.TAGVERSION }}**
-            - Added enemies chunks.
-            - Added ability to destroy chunks.
-            - Added mothership.
-            - Added scoring system.
-            - Added win condition.
-            - Added end screen for win and lose.
+            - Added bunkers made of rocks.
           files: |
             build/${{ env.EXPORT_NAME }}-windows-${{ env.TAGVERSION }}.zip
             build/${{ env.EXPORT_NAME }}-linux-${{ env.TAGVERSION }}.zip
