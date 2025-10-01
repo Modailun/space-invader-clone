@@ -2,8 +2,9 @@ extends Node2D
 
 var direction: int = -1
 var direction_y: int = 1
-@export var speed: int = 32
+@export var speed: int = 16
 @export var max_speed: int = 128
+@export var speed_increment: int = 4
 var sprite_size: int = 16
 var distance_y: int = 4
 
@@ -55,10 +56,10 @@ func _physics_process(delta: float) -> void:
 	if position.x > viewport_size.x - 4 * sprite_size or position.x < 4 * sprite_size:
 		direction *= -1
 		position.y += direction_y * distance_y
-		speed = min(speed + 2, max_speed)
+		speed = min(speed + speed_increment, max_speed)
 
     # Inverse la direction verticale si on atteint le haut ou le bas
-	if position.y > viewport_size.y - 4 * sprite_size or position.y < 3 * sprite_size:
+	if position.y > viewport_size.y - 5 * sprite_size or position.y < 3 * sprite_size:
 		direction_y *= -1
 		position.y += direction_y * distance_y
 	

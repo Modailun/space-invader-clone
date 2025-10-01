@@ -11,7 +11,9 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and body.is_inside_tree():
+	if body.is_in_group("rock") and body.is_inside_tree():
+		body.queue_free()
+		queue_free()
+	elif body.is_in_group("player") and body.is_inside_tree():
 		body.died()
 		queue_free()
-		# Optionally, you can add score increment logic here
