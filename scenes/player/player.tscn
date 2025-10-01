@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bm53g60spdaf1" path="res://assets/sprites/Player Space Invader.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2y6kr42fh5cj" path="res://scripts/player/player.gd" id="1_dovo2"]
-[ext_resource type="AudioStream" uid="uid://dsepmc1mvoqwk" path="res://assets/sounds/Death Player.ogg" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://bvfspvypqdlfv" path="res://assets/sprites/Feather Particule.png" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 4.0
@@ -48,5 +48,19 @@ frame_progress = 0.5428326
 process_callback = 0
 one_shot = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_gmlin")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = ExtResource("3_gmlin")
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.63
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_min = 0.06
+scale_amount_max = 0.06

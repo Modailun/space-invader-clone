@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2fhlvx8nsel4"]
+[gd_scene load_steps=10 format=3 uid="uid://b2fhlvx8nsel4"]
 
 [ext_resource type="Texture2D" uid="uid://c6y6pyyjwiqvg" path="res://assets/sprites/chunk enemy.png" id="1_j1b8m"]
 [ext_resource type="Script" uid="uid://pmy4uxedwvhy" path="res://scripts/enemies/chunk.gd" id="1_k30mj"]
 [ext_resource type="AudioStream" uid="uid://bdcmlcmh4i3mj" path="res://assets/sounds/Rock Destroyed.ogg" id="3_r24ly"]
 [ext_resource type="AudioStream" uid="uid://dsepmc1mvoqwk" path="res://assets/sounds/Death Player.ogg" id="4_ntcuy"]
+[ext_resource type="Texture2D" uid="uid://bvfspvypqdlfv" path="res://assets/sprites/Feather Particule.png" id="5_yj8ct"]
 
 [sub_resource type="Animation" id="Animation_r24ly"]
 resource_name = "rock destroy"
@@ -108,6 +109,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_yj8ct"]
 resource_name = "death player"
@@ -154,12 +167,24 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj8ct"]
@@ -191,5 +216,22 @@ stream = ExtResource("4_ntcuy")
 libraries = {
 &"": SubResource("AnimationLibrary_yj8ct")
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = ExtResource("5_yj8ct")
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.63
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_min = 0.06
+scale_amount_max = 0.06
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
